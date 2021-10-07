@@ -65,7 +65,10 @@ plot(X, [sin.(X), cos.(X)])
 Y = hcat(sin.(X), cos.(X))
 
 # ╔═╡ eb66d0a5-b11a-40c6-9f13-f3a1b4d529b9
-plot([sin, cos], 0:0.1:2pi, labels=["sin" "cos"], linewidth=[1, 5])
+plot([sin, cos], 0:0.1:2pi, 
+	labels=["sin" "cos"],
+	linecolor=[:orange :green],
+	linewidth=[1, 5])
 
 # ╔═╡ f4f4616a-ce45-4f5f-8e4a-2c08a52fc2a2
 md"""
