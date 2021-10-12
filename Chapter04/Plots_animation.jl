@@ -25,9 +25,6 @@ end
 # ╔═╡ beaed7d2-2013-46af-9fc0-c0fee142a965
 gif(anim)
 
-# ╔═╡ c7fe2efa-c202-489a-8df0-75302f2d5f10
-mp4(anim)
-
 # ╔═╡ 9a651ae7-384c-47fc-831b-8be30d6e42a2
 
 
@@ -872,7 +869,6 @@ version = "0.9.1+5"
 # ╠═d5491ef3-e754-4e05-9488-6b07d206a95e
 # ╠═5c98d0ea-981e-4ad2-bc9f-fe7f5c23b3ca
 # ╠═beaed7d2-2013-46af-9fc0-c0fee142a965
-# ╠═c7fe2efa-c202-489a-8df0-75302f2d5f10
 # ╟─9a651ae7-384c-47fc-831b-8be30d6e42a2
 # ╠═938e70ae-e691-4965-bba7-6f6e5268f117
 # ╠═5a07e294-4e5a-4d2d-9a89-ec0a0cc7d5ad
