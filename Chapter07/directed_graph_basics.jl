@@ -7,47 +7,40 @@ using InteractiveUtils
 # ╔═╡ 87feab9a-8c45-11ec-3bcc-235118dc491f
 using Graphs, GraphRecipes, Plots
 
-# ╔═╡ 15f60779-b23f-4ce1-bb5a-041f4375bc39
-graph = SimpleGraph(3)
+# ╔═╡ 558f5f58-84e7-416c-98b0-0b3d8682e8e3
+directed = SimpleDiGraph(3, 4, seed=1)
 
-# ╔═╡ c13c00d5-8628-4834-b948-a49fb228dc55
-nv(graph)
+# ╔═╡ c6b1edf4-aa5e-498b-99cd-8ad406de8350
+plot_directed = graphplot(directed,
+	names=vertices(directed), 
+	nodecolor=:white)
 
-# ╔═╡ e21ae402-7021-4e26-a3f1-e2274b40b270
-ne(graph)
+# ╔═╡ 9af8d0e3-f816-4ba1-bde0-42941793740b
+undirected = SimpleGraph(directed)
 
-# ╔═╡ 6d509137-ff4d-4cbe-9e59-8f58e6326d0b
-typeof(graph)
+# ╔═╡ deee8e36-840b-46ae-8577-0eb829e34de0
+plot_undirected = graphplot(
+	undirected, 
+	names=vertices(undirected),
+	nodecolor=:white)
 
-# ╔═╡ f0708b22-4007-4f3a-b4f0-6bbf12102783
-collect(vertices(graph))
+# ╔═╡ c692df66-810b-480d-b3d9-23eff81d1e0c
+plot(plot_directed, plot_undirected)
 
-# ╔═╡ 644ce6fa-817a-44a4-adeb-9e8b0ccafd9e
-add_edge!(graph, 1, 2)
+# ╔═╡ 3c7945a2-9866-4a59-8581-b5e0e1e04407
+neighbors(undirected, 3)
 
-# ╔═╡ 8f20f0ca-5367-4545-970a-55aff9ba9776
-add_edge!(graph, 1, 3)
+# ╔═╡ 91361b5c-df98-49b8-96da-f3226d3aa10c
+neighbors(directed, 3)
 
-# ╔═╡ 732f1d1c-652b-4fb4-9d90-b2ded623b2ff
-graphplot(graph)
+# ╔═╡ 05e77e5d-ded2-4d82-aea6-20e73cb1352c
+inneighbors(directed, 3)
 
-# ╔═╡ 25660884-bf6b-4b22-b640-d34204b5e624
-add_vertex!(graph)
+# ╔═╡ 25f1882d-da3c-4543-a456-71a60468ad0f
+has_edge(undirected, 3, 2)
 
-# ╔═╡ 21dba0d7-6b2f-4dd2-9583-b940dfbd8a99
-add_vertices!(graph, 2)
-
-# ╔═╡ b0910e49-eed9-49fb-8151-7b275aca1704
-nv(graph)
-
-# ╔═╡ 11c9a863-f990-4172-8596-7959326fc439
-rem_vertex!(graph, 4)
-
-# ╔═╡ 5b909719-a4a0-4882-b6bd-107e2fb581c6
-collect(vertices(graph))
-
-# ╔═╡ ff465e9e-65bf-42ac-9d3e-f09c89dfbbe8
-rem_edge!(graph, 1, 3)
+# ╔═╡ a324037c-a731-4073-b956-597f24af4c81
+has_edge(directed, 3, 2)
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -1006,19 +999,15 @@ version = "0.9.1+5"
 
 # ╔═╡ Cell order:
 # ╠═87feab9a-8c45-11ec-3bcc-235118dc491f
-# ╠═15f60779-b23f-4ce1-bb5a-041f4375bc39
-# ╠═c13c00d5-8628-4834-b948-a49fb228dc55
-# ╠═e21ae402-7021-4e26-a3f1-e2274b40b270
-# ╠═6d509137-ff4d-4cbe-9e59-8f58e6326d0b
-# ╠═f0708b22-4007-4f3a-b4f0-6bbf12102783
-# ╠═644ce6fa-817a-44a4-adeb-9e8b0ccafd9e
-# ╠═8f20f0ca-5367-4545-970a-55aff9ba9776
-# ╠═732f1d1c-652b-4fb4-9d90-b2ded623b2ff
-# ╠═25660884-bf6b-4b22-b640-d34204b5e624
-# ╠═21dba0d7-6b2f-4dd2-9583-b940dfbd8a99
-# ╠═b0910e49-eed9-49fb-8151-7b275aca1704
-# ╠═11c9a863-f990-4172-8596-7959326fc439
-# ╠═5b909719-a4a0-4882-b6bd-107e2fb581c6
-# ╠═ff465e9e-65bf-42ac-9d3e-f09c89dfbbe8
+# ╠═558f5f58-84e7-416c-98b0-0b3d8682e8e3
+# ╠═c6b1edf4-aa5e-498b-99cd-8ad406de8350
+# ╠═9af8d0e3-f816-4ba1-bde0-42941793740b
+# ╠═deee8e36-840b-46ae-8577-0eb829e34de0
+# ╠═c692df66-810b-480d-b3d9-23eff81d1e0c
+# ╠═3c7945a2-9866-4a59-8581-b5e0e1e04407
+# ╠═91361b5c-df98-49b8-96da-f3226d3aa10c
+# ╠═05e77e5d-ded2-4d82-aea6-20e73cb1352c
+# ╠═25f1882d-da3c-4543-a456-71a60468ad0f
+# ╠═a324037c-a731-4073-b956-597f24af4c81
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
