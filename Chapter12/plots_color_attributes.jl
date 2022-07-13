@@ -13,7 +13,8 @@ scatter(1:10, markersize=10,
 	foreground_color_text=:grey70,
 	foreground_color_legend=:grey30,
 	markercolor=:viridis, 
-	marker_z=1:10)
+	marker_z=1:10,
+	thickness_scaling=1.5)
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
