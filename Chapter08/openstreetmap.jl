@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.18.4
+# v0.19.9
 
 using Markdown
 using InteractiveUtils
@@ -10,11 +10,11 @@ using OpenStreetMapX, OpenStreetMapXPlot, Plots
 # ╔═╡ c3dd50bd-04de-4185-984d-24cb91f4d22e
 soho =  get_map_data("map.osm", use_cache = false)
 
-# ╔═╡ dc62551e-6d95-487f-8d9e-7f253437ec03
-p = plotmap(soho)
-
 # ╔═╡ 6c940774-313b-4e24-a37a-ea81d1ff4686
 soho.bounds
+
+# ╔═╡ dc62551e-6d95-487f-8d9e-7f253437ec03
+p = plotmap(soho)
 
 # ╔═╡ 860ea3f1-7583-4ddd-8d33-91f8a00a74ff
 pump = ENU(LLA(51.51334705377814, -0.1366063043462497),
@@ -606,9 +606,9 @@ version = "2.10.0"
 
 [[Qt5Base_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "Fontconfig_jll", "Glib_jll", "JLLWrappers", "Libdl", "Libglvnd_jll", "OpenSSL_jll", "Pkg", "Xorg_libXext_jll", "Xorg_libxcb_jll", "Xorg_xcb_util_image_jll", "Xorg_xcb_util_keysyms_jll", "Xorg_xcb_util_renderutil_jll", "Xorg_xcb_util_wm_jll", "Zlib_jll", "xkbcommon_jll"]
-git-tree-sha1 = "ad368663a5e20dbb8d6dc2fddeefe4dae0781ae8"
+git-tree-sha1 = "c6c0f690d0cc7caddb74cef7aa847b824a16b256"
 uuid = "ea2cea3b-5b76-57ae-a6ef-0a8af62496e1"
-version = "5.15.3+0"
+version = "5.15.3+1"
 
 [[REPL]]
 deps = ["InteractiveUtils", "Markdown", "Sockets", "Unicode"]
@@ -998,6 +998,7 @@ version = "0.9.1+5"
 
 # ╔═╡ Cell order:
 # ╠═cd77c60c-af9f-11ec-1354-1f8e7c935377
+# ╠═5a129594-e169-463b-b8c6-c814f747df8d
 # ╠═c3dd50bd-04de-4185-984d-24cb91f4d22e
 # ╠═6c940774-313b-4e24-a37a-ea81d1ff4686
 # ╠═dc62551e-6d95-487f-8d9e-7f253437ec03
