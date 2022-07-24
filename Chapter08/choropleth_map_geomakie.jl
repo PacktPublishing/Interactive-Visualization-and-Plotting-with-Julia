@@ -5,7 +5,6 @@ using Markdown
 using InteractiveUtils
 
 # ╔═╡ 0f050e69-6774-4e76-b8eb-6ef9f22d178d
-# ╠═╡ show_logs = false
 begin
     import Pkg
     Pkg.activate(temp=true)
