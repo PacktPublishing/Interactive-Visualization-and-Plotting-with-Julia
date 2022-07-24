@@ -53,6 +53,14 @@ end
 # ╔═╡ bd3c7861-25c4-4612-b984-3edfe599d3df
 blackboard(rand(10, 4))
 
+# ╔═╡ 17dcc6d6-dda0-4655-a480-b6558bac2a92
+blackboard(rand(10, 4), 
+	background_color=:white,
+	palette=:greens,
+	framestyle=:box,
+	linewidth=10,
+	legend_position=:outerleft)
+
 # ╔═╡ d3669cb1-0786-482e-afa9-88bdd9e477f3
 md"""
 ## Type Recipe
@@ -980,6 +988,7 @@ version = "0.9.1+5"
 # ╠═be00aaf7-1633-4239-add4-992ae921bc0a
 # ╠═0145d10b-36bc-4c3b-b801-8f370e18ea5e
 # ╠═bd3c7861-25c4-4612-b984-3edfe599d3df
+# ╠═17dcc6d6-dda0-4655-a480-b6558bac2a92
 # ╟─d3669cb1-0786-482e-afa9-88bdd9e477f3
 # ╠═a31e7b1d-6243-4d39-b678-821107e82395
 # ╠═fda046cb-6b64-4052-ab20-c5d70130c259
