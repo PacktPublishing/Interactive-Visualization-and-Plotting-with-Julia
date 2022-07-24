@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.9
+# v0.18.4
 
 using Markdown
 using InteractiveUtils
@@ -47,6 +47,18 @@ begin
 	fig
 end
 
+# ╔═╡ b73e8bfd-e427-4c9f-af6a-afa5d7ebc8d8
+begin
+	earth_fig = Figure()
+	earth_ax = GeoAxis(earth_fig[1,1],
+		lonlims = automatic,
+		dest = "+proj=ortho")
+	image!(earth_ax, -180..180, -90..90, 
+		rotr90(GeoMakie.earth());
+		interpolate = false)
+	earth_fig
+end
+
 # ╔═╡ Cell order:
 # ╠═0f050e69-6774-4e76-b8eb-6ef9f22d178d
 # ╠═08c9e2fc-7b4a-495f-ba5f-1271b389df70
@@ -54,3 +66,4 @@ end
 # ╠═f108d637-147e-4188-bf85-f29246238a82
 # ╠═219359cd-acc5-4874-800e-21c1214e3229
 # ╠═9b96fb1c-d54d-46b3-914d-2ebb273be5fd
+# ╠═b73e8bfd-e427-4c9f-af6a-afa5d7ebc8d8
