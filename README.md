@@ -1,2 +1,2 @@
-# Interactive-Visualization-with-Julia
-Interactive Visualization with Julia, Published by Packt
+# Interactive-Visualization-and-Plotting-with-Julia
+Interactive Visualization and Plotting with Julia, Published by Packt
