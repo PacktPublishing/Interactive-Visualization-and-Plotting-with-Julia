@@ -1,1 +1,518 @@
-<h1>Interactive Visualization and Plotting with Julia</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interactive Visualization and Plotting with Julia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+        integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+
+            // make the iframe height to fit the notebook height
+            const mainIframe = window.parent.document.getElementById('main-iframe');
+            var mainIframeHeight = 0;
+
+            function getIframeHeight() {
+                var scrollHeight = mainIframeHeight;
+                try {
+                    scrollHeight = mainIframe.contentWindow.document.body.scrollHeight;
+                } finally {
+                    return scrollHeight;
+                };
+            };
+
+            function resizeIframe(iframeHeight) {
+                mainIframe.style.height = iframeHeight + 20 + "px";
+            };
+
+            setInterval(function () {
+                currentHeight = getIframeHeight()
+                if (currentHeight && (mainIframeHeight != currentHeight)) {
+                    resizeIframe(currentHeight);
+                };
+            }, 1000);
+
+            // show the path to the file at the top
+            $('a').click(function () {
+                var url = $(this).attr('href');
+                if (url.startsWith('Chapter')) {
+                    $('#githubFilePath').text(url);
+                } else {
+                    $('#githubFilePath').text('');
+                };
+                return true;
+            });
+
+        });
+    </script>
+    <style>
+        .link-unstyled,
+        .link-unstyled:link,
+        .link-unstyled:hover {
+            color: inherit;
+            text-decoration: inherit;
+        }
+
+        #githubFilePath {
+            margin: 0.5rem;
+        }
+
+        .btn-toggle {
+            display: inline-flex;
+            align-items: center;
+            text-align: left;
+            padding: .25rem .5rem;
+            font-weight: normal;
+            color: rgba(0, 0, 0, .65);
+            background-color: transparent;
+            border: 0;
+        }
+
+        .btn-toggle:hover,
+        .btn-toggle:focus {
+            color: rgba(0, 0, 0, .85);
+            background-color: #dedede;
+        }
+
+        .btn-toggle::before {
+            width: 1.25em;
+            line-height: 0;
+            content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+            transition: transform .35s ease;
+            transform-origin: .5em 50%;
+        }
+
+        .btn-toggle[aria-expanded="true"] {
+            color: rgba(0, 0, 0, .85);
+        }
+
+        .btn-toggle[aria-expanded="true"]::before {
+            transform: rotate(90deg);
+        }
+
+        .btn-toggle-nav a {
+            display: inline-flex;
+            padding: .1875rem .5rem;
+            margin-top: .125rem;
+            margin-left: 1.25rem;
+            text-decoration: none;
+        }
+
+        .btn-toggle-nav a:hover,
+        .btn-toggle-nav a:focus {
+            background-color: #dedede;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">
+                <div class="flex-shrink-0 p-3 bg-white">
+                    <!-- style="width: 280px;"-->
+                    <a href="index_content.html" target="main-iframe"
+                        class="d-flex pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                        <span class="fs-1 fw-semibold">Interactive Visualization and Plotting with Julia</span>
+                    </a>
+                    <ul class="list-unstyled ps-0">
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center
+                            rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter01"
+                                aria-expanded="false">
+                                Chapter 01 — An Introduction to Julia for Data
+                                Visualization and Analysis
+                            </button>
+                            <div class="collapse" id="chapter01">
+                                <ul class="btn-toggle-nav list-unstyled
+                                fw-normal pb-1 small">
+                                    <li><a href="Chapter01/FirstNotebook.html" target="main-iframe"
+                                            class="link-dark rounded">Taking advantage of Jupyter notebooks through
+                                            IJulia</a></li>
+                                    <li><a href="Chapter01/JuliaTypes.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Knowing the basic Julia types for
+                                            data visualization</a></li>
+                                    <li><a href="Chapter01/BasicPlots.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Creating a basic
+                                            plot</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center
+                            rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter02"
+                                aria-expanded="false">
+                                Chapter 02 — The Julia Plotting Ecosystem
+                            </button>
+                            <div class="collapse" id="chapter02">
+                                <ul class="btn-toggle-nav list-unstyled
+                                fw-normal pb-1 small">
+                                    <li><a href="Chapter02/PlottingLibraries.html" target="main-iframe"
+                                            class="link-dark rounded">Plotting libraries</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center
+                            rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter03"
+                                aria-expanded="false">
+                                Chapter 03 — Getting Interactive Plots with Julia
+                            </button>
+                            <div class="collapse" id="chapter03">
+                                <ul class="btn-toggle-nav list-unstyled
+                                fw-normal pb-1 small">
+                                    <li><a href="Chapter03/Observables_arc.html" target="main-iframe"
+                                            class="link-dark rounded">Triggering actions using Observables</a></li>
+                                    <li><a href="Chapter03/Pluto_arc.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Creating interactive visualizations with Pluto</a>
+                                    </li>
+                                    <li><a href="Chapter03/PlutoUI_arc.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Creating interfaces with PlutoUI</a>
+                                    </li>
+                                    <li><a href="Chapter03/Pluto_WGLMakie_arc.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Interactive plotting with WGLMakie and Pluto</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center
+                            rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter04"
+                                aria-expanded="false">
+                                Chapter 04 — An Introduction to Julia for Data
+                                Visualization and Analysis
+                            </button>
+                            <div class="collapse" id="chapter04">
+                                <ul class="btn-toggle-nav list-unstyled
+                                fw-normal pb-1 small">
+                                    <li><a href="Chapter04/Plots_animation_verbose.html" target="main-iframe"
+                                            class="link-dark rounded">Easy animation
+                                            using Plots (verbose)</a></li>
+                                    <li><a href="Chapter04/Plots_animation.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Easy animation
+                                            using Plots</a></li>
+                                    <li><a href="Chapter04/Plots_and_Animations.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Using the
+                                            Animations package</a></li>
+                                    <li><a href="Chapter04/Makie_animation.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Animating Makie
+                                            plots</a></li>
+                                    <li><a href="Chapter04/Javis_animation.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Getting started with Javis</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center
+                            rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter05"
+                                aria-expanded="false">
+                                Chapter 05 — Introducing the Grammar of Graphics
+                            </button>
+                            <div class="collapse" id="chapter05">
+                                <ul class="btn-toggle-nav list-unstyled
+                                fw-normal pb-1 small">
+                                    <li><a href="Chapter05/describe_iris_dataframe.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Working with DataFrames and tidy data</a></li>
+                                    <li><a href="Chapter05/gadfly/gadfly.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Exploring data with Gadfly</a></li>
+                                    <li><a href="Chapter05/vegalite/vegalite.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Introducing the Grammar of Interactive Graphics
+                                            with VegaLite</a></li>
+                                    <li><a href="Chapter05/aog.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Makie's Algebra of Graphics</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center
+                            rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter06"
+                                aria-expanded="false">
+                                Chapter 06 — Creating Statistical Plots
+                            </button>
+                            <div class="collapse" id="chapter06">
+                                <ul class="btn-toggle-nav list-unstyled
+                                fw-normal pb-1 small">
+                                    <li><a href="Chapter06/anscombe.jl.html" target="main-iframe"
+                                            class="link-dark rounded"><em>Anscombe’s
+                                                quartet</em></a></li>
+                                    <li><a href="Chapter06/statsplots.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Introducing
+                                            StatsPlots</a></li>
+
+                                    <li><a href="Chapter06/histogram_statsplots.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Drawing histograms
+                                            (StatsPlots)</a></li>
+                                    <li><a href="Chapter06/histogram_gadfly.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Drawing histograms
+                                            (Gadfly)</a></li>
+                                    <li><a href="Chapter06/histogram_makie.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Drawing histograms
+                                            (Makie)</a></li>
+
+                                    <li><a href="Chapter06/density_statsplots.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Approximating density functions
+                                            (StatsPlots)</a></li>
+                                    <li><a href="Chapter06/density_gadfly.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Approximating density functions
+                                            (Gadfly)</a></li>
+                                    <li><a href="Chapter06/density_makie.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Approximating density functions
+                                            (Makie)</a></li>
+
+                                    <li><a href="Chapter06/boxplot_statsplots.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Introducing boxplots
+                                            (StatsPlots)</a></li>
+                                    <li><a href="Chapter06/boxplot_gadfly.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Introducing boxplots
+                                            (Gadfly)</a></li>
+                                    <li><a href="Chapter06/boxplot_makie.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Introducing boxplots
+                                            (Makie)</a></li>
+
+                                    <li><a href="Chapter06/violin_statsplots.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Visualizing distribution shapes with violin plots
+                                            (StatsPlots)</a></li>
+                                    <li><a href="Chapter06/violin_gadfly.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Visualizing distribution shapes with violin plots
+                                            (Gadfly)</a></li>
+                                    <li><a href="Chapter06/violin_makie.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Visualizing distribution shapes with violin plots
+                                            (Makie)</a></li>
+
+                                    <li><a href="Chapter06/qqplot_statsplots.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Comparing distributions with Q-Q plots
+                                            (StatsPlots)</a></li>
+                                    <li><a href="Chapter06/qqplot_gadfly.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Comparing distributions with Q-Q plots
+                                            (Gadfly)</a></li>
+                                    <li><a href="Chapter06/qqplot_makie.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Comparing distributions with Q-Q plots
+                                            (Makie)</a></li>
+
+                                    <li><a href="Chapter06/bidimensional_statsplots.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Plotting bivariate
+                                            distributions and regressions</a></li>
+
+                                    <li><a href="Chapter06/regression_gadfly.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Drawing regression lines
+                                            (Gadfly)</a></li>
+                                    <li><a href="Chapter06/regression_makie.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Drawing regression lines
+                                            (Makie)</a></li>
+
+                                    <li><a href="Chapter06/marginal_plots.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Creating marginal
+                                            plots</a></li>
+
+                                    <li><a href="Chapter06/clustering.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Visualizing clustering results</a></li>
+
+                                    <li><a href="Chapter06/groups.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Comparing between
+                                            groups</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center
+                            rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter07"
+                                aria-expanded="false">
+                                Chapter 07 — Visualizing Graphs
+                            </button>
+                            <div class="collapse" id="chapter07">
+                                <ul class="btn-toggle-nav list-unstyled
+                                fw-normal pb-1 small">
+                                    <li><a href="Chapter07/graphs_basics.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Working with graphs in Julia</a></li>
+                                    <li><a href="Chapter07/directed_graph_basics.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Working with
+                                            graphs in Julia (directed graphs)</a></li>
+                                    <li><a href="Chapter07/metagraphs.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Working with MetaGraph</a></li>
+                                    <li><a href="Chapter07/save_load_graphs.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Saving and loading
+                                            graphs</a></li>
+                                    <li><a href="Chapter07/graphplot.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Visualizing graphs
+                                            with GraphPlot</a></li>
+                                    <li><a href="Chapter07/graphrecipes.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Exploring
+                                            GraphRecipes</a></li>
+                                    <li><a href="Chapter07/graphmakie.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Creating interactive graphs with GraphMakie</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center
+                            rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter08"
+                                aria-expanded="false">
+                                Chapter 08 — Visualizing Geographically Distributed Data
+                            </button>
+                            <div class="collapse" id="chapter08">
+                                <ul class="btn-toggle-nav list-unstyled
+                                fw-normal pb-1 small">
+                                    <li><a href="Chapter08/choropleth_map_plots.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Creating a choropleth map with Plots</a></li>
+                                    <li><a href="Chapter08/choropleth_map_geomakie.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Creating a choropleth map with GeoMakie</a></li>
+                                    <li><a href="Chapter08/openstreetmap.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Introducing OpenStreetMapX</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center
+                            rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter09"
+                                aria-expanded="false">
+                                Chapter 09 — Plotting Biological Data
+                            </button>
+                            <div class="collapse" id="chapter09">
+                                <ul class="btn-toggle-nav list-unstyled
+                                fw-normal pb-1 small">
+                                    <li><a href="Chapter09/phylo.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Visualizing phylogenetic trees</a></li>
+                                    <li><a href="Chapter09/msa.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Exploring multiple sequence alignments</a></li>
+                                    <li><a href="Chapter09/structure.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Visualizing protein structures</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center
+                            rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter10"
+                                aria-expanded="false">
+                                Chapter 10 — The Anatomy of a Plot
+                            </button>
+                            <div class="collapse" id="chapter10">
+                                <ul class="btn-toggle-nav list-unstyled
+                                fw-normal pb-1 small">
+                                    <li><a href="Chapter10/plots.jl.html" target="main-iframe"
+                                            class="link-dark rounded">The anatomy of a Plots plot</a></li>
+                                    <li><a href="Chapter10/makie.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Knowing the components of Makie’s figures</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center
+                            rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter11"
+                                aria-expanded="false">
+                                Chapter 11 — Defining Plot Layouts to Create Figure Panels
+                            </button>
+                            <div class="collapse" id="chapter11">
+                                <ul class="btn-toggle-nav list-unstyled
+                                fw-normal pb-1 small">
+                                    <li><a href="Chapter11/plots.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Creating layouts with Plots</a></li>
+                                    <li><a href="Chapter11/makie.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Understanding Makie’s layout system</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center
+                            rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter12"
+                                aria-expanded="false">
+                                Chapter 12 — Customizing Plot Attributes – Axes, Legends, and Colors
+                            </button>
+                            <div class="collapse" id="chapter12">
+                                <ul class="btn-toggle-nav list-unstyled
+                                fw-normal pb-1 small">
+                                    <li><a href="Chapter12/plots_attributes.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Exploring plot
+                                            attributes</a></li>
+                                    <li><a href="Chapter12/latex_plots.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Using LaTeX equations</a></li>
+                                    <li><a href="Chapter12/plots_legends.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Tailoring
+                                            legends</a></li>
+                                    <li><a href="Chapter12/plots_colorschemes.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Coloring our figures</a></li>
+                                    <li><a href="Chapter12/plots_color_attributes.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Color attributes</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center
+                            rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter13"
+                                aria-expanded="false">
+                                Chapter 13 — Designing Plot Themes
+                            </button>
+                            <div class="collapse" id="chapter13">
+                                <ul class="btn-toggle-nav list-unstyled
+                                fw-normal pb-1 small">
+                                    <li><a href="Chapter13/plots_themes.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Using and defining themes with Plots</a></li>
+                                    <li><a href="Chapter13/makie_themes.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Theming with Makie</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center
+                            rounded collapsed" data-bs-toggle="collapse" data-bs-target="#chapter14"
+                                aria-expanded="false">
+                                Chapter 14 — Designing Your Own Plots – Plot Recipes
+                            </button>
+                            <div class="collapse" id="chapter14">
+                                <ul class="btn-toggle-nav list-unstyled
+                                fw-normal pb-1 small">
+                                    <li><a href="Chapter14/plots_shapes.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Drawing shapes</a></li>
+                                    <li><a href="Chapter14/plots_custom_markers.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Drawing shapes (custom marker shapes)</a></li>
+                                    <li><a href="Chapter14/plots_recipes.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Creating plotting recipes</a></li>
+                                    <li><a href="Chapter14/plot_recipe.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Plot recipes</a></li>
+                                    <li><a href="Chapter14/makie_recipe.jl.html" target="main-iframe"
+                                            class="link-dark rounded">Writing plotting recipes for Makie</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <p id="githubFilePath" class="text-muted font-monospace fs-6"></p>
+                </div>
+                <div class="row">
+                    <div class="ratio ratio-1x1">
+                        <iframe name="main-iframe" id="main-iframe" src="index_content.html"></object>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
