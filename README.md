@@ -10,15 +10,17 @@ Makie, Gadfly, and more**
 
 You can read more about the book or buy it at the [Amazon](https://www.amazon.com/Interactive-Visualization-Plotting-Julia-visualizations/dp/1801810516) and [Packt](https://www.packtpub.com/product/interactive-visualization-and-plotting-with-julia) websites.
 
+---
 
 In this git repository, there is a folder for each book chapter. In those
 folders are the files defining the project environment used when creating the
 examples. The code examples are
 available as Julia files, Jupyter, or Pluto notebooks. 
 
-You can see the Jupyter and Pluto notebooks rendered on this website: [https://packtpublishing.github.io/Interactive-Visualization-and-Plotting-with-Julia/](https://packtpublishing.github.io/Interactive-Visualization-and-Plotting-with-Julia/)
+You can see the **rendered Jupyter and Pluto notebooks** on this website: [https://packtpublishing.github.io/Interactive-Visualization-and-Plotting-with-Julia/](https://packtpublishing.github.io/Interactive-Visualization-and-Plotting-with-Julia/)
 
-While the website helps you see the cell outputs without running the notebooks,
+While the [website](https://packtpublishing.github.io/Interactive-Visualization-and-Plotting-with-Julia/) 
+helps you see the **cell outputs** without running the notebooks,
 they are not interactive, and some visualization will be missing. In such cases,
 running the notebook on your computer is highly recommended.
 
