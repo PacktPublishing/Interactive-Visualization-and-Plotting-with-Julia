@@ -32,3 +32,7 @@ running the notebook on your computer is highly recommended.
 ![figure91](https://user-images.githubusercontent.com/2822757/188184997-17084fb6-b8af-4e7d-8857-13a3a4100edf.png)
 
 **Page 263**: In the paragraph after the code block of step 6, it should say `run_server`, as it appears in the code, instead of `run_serve`.
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781801810517">https://packt.link/free-ebook/9781801810517 </a> </p>
