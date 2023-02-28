@@ -30,6 +30,8 @@ running the notebook on your computer is highly recommended.
 
 ## Errata
 
+**Page 13-14**: In the **Running Julia on VS Code** section, the description of running code blocks and entire files using the Julia extension on VS Code is inverted. To run a code block, you need to press *Shift + Enter*, and to run a whole file, you need to press *Alt + Enter*. 
+
 **Page 252 - Figure 9.1**: Sadly, the plot captured for the figure is one of the ones that doesn't change its leaves after sorting. The figure should be:
 
 ![figure91](https://user-images.githubusercontent.com/2822757/188184997-17084fb6-b8af-4e7d-8857-13a3a4100edf.png)
